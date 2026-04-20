@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        <a href="index.html"><img src="u__3_-removebg-preview.png"></a>
+        </div>
+        <nav id="nav_1">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html"> About us</a>
+        <a href="contact.html">Contact</a>
+        </nav>
+        <nav id="nav-2">
+        <div class="social">
+            <a href="https://www.facebook.com/profile.php?id=61586610396658" target="_blank" class="social fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/usellbuy/" target="_blank" class="social ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/Abva494179" target="_blank" class="social x"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        </nav>
+    </header>
+   <div style="max-width:900px;margin:0 auto;padding:0 40px;">
+ 
+  <div class="q-container">
+    <div class="label">Your opinion counts</div>
+    <h1>Quiz</h1>
+    <p class="sub">Help us improve UsellBuy by sharing your experience. This form takes less than 2 minutes.</p>
+  </div>
+ 
+  <!-- ░░░ FORMULAIRE PRINCIPAL ░░░ -->
+  <div class="q-card" id="q-card">
+ 
+    <!-- Formulaire visible avant soumission -->
+    <form id="quiz-form" novalidate>
+ 
+      <!-- CONTRÔLE 1 : Textbox — Nom -->
+      <div class="q-group" id="grp-nom">
+        <label class="main-label" for="q-nom">
+          <i class="fa-solid fa-user" style="margin-right:6px;"></i>Your full name*
+        </label>
+        <input type="text" id="q-nom" placeholder="Ex : Sara Ben Ali" maxlength="80">
+        <div class="error-msg" id="err-nom"><i class="fa-solid fa-circle-exclamation"></i> A name is required (minimum 3 characters)..</div>
+      </div>
+ 
+      <!-- CONTRÔLE 2 : Textbox Email -->
+      <div class="q-group" id="grp-email">
+        <label class="main-label" for="q-email">
+          <i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Adresse e-mail *
+        </label>
+        <input type="email" id="q-email" placeholder="Ex : sara@example.com">
+        <div class="error-msg" id="err-email"><i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address.</div>
+      </div>
+ 
+      <hr class="q-divider">
+ 
+      <!-- CONTRÔLE 3 : Radio — Satisfaction générale -->
+      <div class="q-group" id="grp-satisfaction">
+        <label class="main-label">
+          <i class="fa-solid fa-face-smile" style="margin-right:6px;"></i>Overall satisfaction *
+        </label>
+        <div class="options-grid">
+          <label class="option-item">
+            <input type="radio" name="satisfaction" value="tres-satisfait"> Very satisfied
+          </label>
+          <label class="option-item">
+            <input type="radio" name="satisfaction" value="satisfait"> Satisfied
+          </label>
+          <label class="option-item">
+            <input type="radio" name="satisfaction" value="neutre"> Neutral
+          </label>
+          <label class="option-item">
+            <input type="radio" name="satisfaction" value="insatisfait"> Dissatisfied
+          </label>
+        </div>
+        <div class="error-msg" id="err-satisfaction"><i class="fa-solid fa-circle-exclamation"></i>Please select a level of satisfaction.</div>
+      </div>
+ 
+      <hr class="q-divider">
+ 
+      <!-- CONTRÔLE 4 : Checkbox — Fonctionnalités utilisées -->
+      <div class="q-group" id="grp-fonctionnalites">
+        <label class="main-label">
+          <i class="fa-solid fa-list-check" style="margin-right:6px;"></i>Features used (check all that apply)
+        </label>
+        <div class="options-grid">
+          <label class="option-item">
+            <input type="checkbox" name="features" value="shop"> <i class="fa-solid fa-cart-shopping"></i> Shop / Purchase
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="features" value="sell"> <i class="fa-solid fa-tag"></i> On sale
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="features" value="payment"> <i class="fa-solid fa-credit-card"></i> Payment
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="features" value="support"> <i class="fa-solid fa-headset"></i> Customer support
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="features" value="mobile"> <i class="fa-solid fa-mobile-screen-button"></i> Mobile version
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="features" value="search"> <i class="fa-solid fa-magnifying-glass"></i> Product search
+          </label>
+        </div>
+      </div>
+ 
+      <hr class="q-divider">
+ 
+      <!-- CONTRÔLE 5 : Note en étoiles (custom radio) -->
+      <div class="q-group" id="grp-note">
+        <label class="main-label">
+          <i class="fa-solid fa-star" style="margin-right:6px;"></i>Overall rating*
+        </label>
+        <div class="stars">
+          <input type="radio" name="note" id="s5" value="5"><label for="s5" title="Excellent">★</label>
+          <input type="radio" name="note" id="s4" value="4"><label for="s4" title="Très bien">★</label>
+          <input type="radio" name="note" id="s3" value="3"><label for="s3" title="Bien">★</label>
+          <input type="radio" name="note" id="s2" value="2"><label for="s2" title="Passable">★</label>
+          <input type="radio" name="note" id="s1" value="1"><label for="s1" title="Mauvais">★</label>
+        </div>
+        <div class="error-msg" id="err-note"><i class="fa-solid fa-circle-exclamation"></i> Please rate this.</div>
+      </div>
+ 
+      <hr class="q-divider">
+ 
+      <!-- CONTRÔLE 6 : Select — Fréquence d'utilisation -->
+      <div class="q-group">
+        <label class="main-label" for="q-frequence">
+          <i class="fa-solid fa-calendar" style="margin-right:6px;"></i>Frequency of use
+        </label>
+        <select id="q-frequence">
+          <option value="">- Choose -</option>
+          <option value="daily">Every day</option>
+          <option value="weekly">A few times a week</option>
+          <option value="monthly">A few times a month</option>
+          <option value="rarely">Rarely</option>
+          <option value="first">First visit</option>
+        </select>
+      </div>
+ 
+      <!-- CONTRÔLE 7 : Range — Probabilité de recommander -->
+      <div class="q-group">
+        <label class="main-label">
+          <i class="fa-solid fa-share-nodes" style="margin-right:6px;"></i>Probability of recommending UsellBuy (0–10)
+        </label>
+        <div class="range-wrap">
+          <span style="font-size:12px;color:var(--gray);">0</span>
+          <input type="range" id="q-recommend" min="0" max="10" value="7" oninput="document.getElementById('rec-val').textContent=this.value">
+          <span style="font-size:12px;color:var(--gray);">10</span>
+          <div class="range-val" id="rec-val">7</div>
+        </div>
+      </div>
+ 
+      <hr class="q-divider">
+ 
+      <!-- CONTRÔLE 8 : Textarea — Commentaire libre -->
+      <div class="q-group" id="grp-commentaire">
+        <label class="main-label" for="q-commentaire">
+          <i class="fa-solid fa-comment" style="margin-right:6px;"></i>Comments / Suggestions *
+        </label>
+        <textarea id="q-commentaire" rows="5" placeholder="Share your experience, suggestions for improvement…" maxlength="500" oninput="updateCharCount()"></textarea>
+        <div class="char-count"><span id="char-num">0</span>/500 characters</div>
+        <div class="error-msg" id="err-commentaire"><i class="fa-solid fa-circle-exclamation"></i> The comment must contain at least 20 characters.</div>
+      </div>
+ 
+      <!-- Bouton soumission -->
+      <button type="submit" class="btn">
+        <i class="fa-solid fa-paper-plane"></i> Send my review
+
+      </button>
+ 
+    </form>
+ 
+    <!-- Message de succès (affiché après validation) -->
+    <div class="success-panel" id="success-panel">
+      <div class="success-icon"><i class="fa-solid fa-check" style ="color: var(--yellow)"></i></div>
+      <h2>Thank you for your feedback!</h2>
+      <p>Your questionnaire has been successfully submitted.<br>We read each response carefully.</p>
+      <br>
+      <a href="index.html" class="btn" style="margin-top:20px;">Return to homepage</a>
+    </div>
+ 
+  </div>
+  </div>
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <p>UsellBuy is a global multi-vendor marketplace that connects buyers and sellers from around the world. Simple, secure, and accessible, it allows anyone to create their own online store and sell products across various categories including electronics, fashion, food, handicrafts, automotive and more.</p>
+      <div class="social" id="footer__social">
+        <a href="https://facebook.com" target="_blank" class="social fb">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://instagram.com" target="_blank" class="social ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <a href="https://x.com" target="_blank" class="social x">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="questionnary.html">questionnary</a></li>
+
+    </div>
+    
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Tunis,Compus Manouba</p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <p>+216 29 255 110 </p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <p>UsellBuy@gmail.com</p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-clock"></i>
+        <p>Mon-Fri: 9am - 6pm</p>
+      </div>
+
+    </div>
+    </div>
+   </footer>
+   <script src="questionnary.js"></script>
+</body>
+</html>

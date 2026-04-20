@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="u__3_-removebg-preview.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UsellBuy — Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="u__3_-removebg-preview.png"></a>
+    </div>
+    <nav id="nav_1">
+      <a href="index.html">Home</a>
+    
+      <a href="services.html">Services</a>
+      <a href="shop.html">Shop</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html"> About us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav id="nav-2">
+      <div class="social">
+        <a href="https://facebook.com" target="_blank" class="social fb"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" class="social ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com" target="_blank" class="social x"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="shop">
+    <div class="wrap">
+      <div class="sh-container">
+        <div class="label">Marketplace</div>
+        <h1>Our <span class="yellow">Shop </span></h1>
+        <p class="sub">Browse our featured products and digital tools.</p>
+      </div>
+    <div class="forms">
+      <h2 class="forms-title"><i class="fas fa-search"></i> Find Your Product</h>
+    <div class="forms-grid">
+      <form class="form" action="https://httpbin.org/get" method="GET" target="_blank">
+        <h3>Quick Search</h3>
+        <input type="text" name="search" placeholder="Product name..." required>
+        <select name="category" class="simple-select">
+          <option value="">All Categories</option>
+          <option value="electronics">Electronics</option>
+          <option value="cameras">Clothes</option>
+          <option value="audio">Food</option>
+        </select>
+        <button type="submit" class="btn" id ="btn__form"><i class="fas fa-search"></i> Search </button>
+      </form>
+      <form class="form" action="https://httpbin.org/post" method="POST" target="_blank">
+        <h3>Advanced Search</h3>
+        <input type="text" name="product" placeholder="Product name..." required>
+        <select name="category" class="simple-select">
+          <option value="">All Categories</option>
+          <option value="electronics">Electronics</option>
+          <option value="cameras">Clothes</option>
+          <option value="audio">Food</option>
+        </select>
+        <div class="price-row">
+          <input type="number" name="min" placeholder="Min $">
+          <input type="number" name="max" placeholder="Max $">
+        </div>
+        <button type="submit" class="btn" id="btn__form"><i class="fas fa-filter"></i> Search </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="prod-grid" id="prod-grid-dynamic"></div>
+  <hr>
+  <div class="forms">
+ 
+      <!-- Formulaire Ajout -->
+    <div class="form-grid">
+      <form class="form" id="form-add" novalidate>
+          <h3><i class="fa-solid fa-circle-plus"></i> Add Product</h3>
+          <div>
+            <div>
+              <label>Name</label><br><br>
+              <input type="text" id="f-name" placeholder="Ex: iPhone 15" required>
+            </div>
+            <div>
+              <label>Price($)</label><br><br>
+              <input type="number" id="f-price" placeholder="99.99" min="0" step="0.01" required>
+            </div>
+          </div>
+          <div>
+            <label>Description</label><br><br>
+            <input type="text" id="f-desc" placeholder="Short description of the product">
+          </div>
+          <div>
+            <div>
+              <label>Country</label><br><br>
+              <input type="text" id="f-country" placeholder="Ex: France">
+            </div>
+            <div>
+              <label>Category</label><br><br>
+              <select id="f-category">
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Food">Food</option>
+                <option value="Music">Music</option>
+                <option value="Sport">Sport</option>
+                <option value="Général">Général</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn">
+            <i class="fa-solid fa-plus"></i> Add to Catalogue
+          </button>
+        </form>
+        <br>
+        
+        <!-- Formulaire Recherche -->
+          <form class="form" id="form-search" novalidate>
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Find Product</h3>
+            <div>
+              <label>Key Word (name, categoy, country…)</label><br><br>
+              <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Ex: Italy, Electronics, Guitar…">
+                <button type="submit" class="btn"><i class="fa-solid fa-search"></i></button>
+                <button type="button" id="btn-reset-search" class="btn"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+              <div id="search-msg"></div>
+            </div>
+          </form>
+    </div>
+ 
+  </div>
+      <!-- ░░░ TABLEAU DYNAMIQUE ░░░ -->
+    <div class="table-section">
+      <div class="table-cataloque">
+        <h2><i class="fa-solid fa-table-list" style="font-size:16px;margin-right:8px;"></i>Complete catalogue</h2><br> <br>
+        <div class="count-badge">Total : <span id="product-count">0</span> Products</div><br> <br>
+      </div>
+      <div class="table-wrapper">
+        <table id="product-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Country</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="product-tbody">
+            <!-- Généré dynamiquement par shop.js -->
+          </tbody>
+        </table>
+      </div>
+  </div>
+ 
+    <hr>
+  </div>
+</div>
+  <div class="prod-top">
+    <h2 class="prod-title">
+      <i class="fas fa-chart-line"></i> Top 3 Best Sellers
+    </h2>
+    <table class="prod-top-table">
+      <thead>
+        <tr>
+          <th><i class="fas fa-trophy"></i> Rank</th>
+          <th><i class="fas fa-box"></i> Product</th>
+          <th><i class="fas fa-tags"></i> Category</th>
+          <th><i class="fas fa-shopping-cart"></i> Sales</th>
+          <th><i class="fas fa-dollar-sign"></i> Revenue</th>
+          <th><i class="fas fa-star"></i> Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="prod-top-row-1">
+          <td class="rank-1"><i class="fas fa-crown"></i> #1</td>
+          <td class="product-cell">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=90" alt="Headphones">
+            <span>Wireless Headphones Pro</span>
+          </td>
+          <td rowspan="3"><i class="fas fa-clock"></i> Electronics</td>
+          <td><i class="fas fa-chart-line"></i> 12,458</td>
+          <td class="revenue"><i class="fas fa-dollar-sign"></i> 1.58M</td>
+          <td class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i> 4.9
+          </td>
+        </tr>
+        <tr class="prod-top-row-2">
+          <td class="rank-2"><i class="fas fa-medal"></i> #2</td>
+          <td class="product-cell">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=90" alt="Watch">
+            <span>Smartwatch Series 9</span>
+          </td>
+          <td><i class="fas fa-chart-line"></i> 9,876</td>
+          <td class="revenue"><i class="fas fa-dollar-sign"></i> 2.47M</td>
+          <td class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i> 4.8
+          </td>
+        </tr>
+        <tr class="prod-top-row-3">
+          <td class="rank-3"><i class="fas fa-medal"></i> #3</td>
+          <td class="product-cell">
+              <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=90" alt="Camera">
+              <span>Polaroid Camera</span>
+            </td>
+            <td><i class="fas fa-chart-line"></i> 7,234</td>
+            <td class="revenue"><i class="fas fa-dollar-sign"></i> 650.9K</td>
+            <td class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i> 4.6
+            </td>
+          </tr >
+            
+          <tr  class="prod-top-row-3">
+            <td colspan="4">
+              <i class="fas fa-dollar-sign">Total Revenue</i>
+            </td>
+            <td class="revenue"><i class="fas fa-dollar-sign">4.7M</i></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <p>UsellBuy is a global multi-vendor marketplace that connects buyers and sellers from around the world. Simple, secure, and accessible, it allows anyone to create their own online store and sell products across various categories including electronics, fashion, food, handicrafts, automotive and more.</p>
+        <div class="social" id="footer__social">
+          <a href="https://facebook.com" target="_blank" class="social fb">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              
+              <a href="https://instagram.com" target="_blank" class="social ig">
+                  <i class="fa-brands fa-instagram"></i>
+              </a>
+              
+              <a href="https://x.com" target="_blank" class="social x">
+                  <i class="fa-brands fa-x-twitter"></i>
+              </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+      </div>
+    
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Tunis,Compus manouba</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <p>+216 29 255 110</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>UsellBuy@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <p>Mon-Fri: 9am - 6pm</p>
+        </div>
+      </div>
+   </div>
+  </footer>
+  <script src="shop.js"></script>
+</body>
+</html>

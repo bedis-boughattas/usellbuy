@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="u__3_-removebg-preview.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Page - UsellBuy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="u__3_-removebg-preview.png" alt="UsellBuy Logo"></a>
+        </div>
+        <nav id="nav_1">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="shop.html">Shop</a>
+            <a href="faq.html">FAQ</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <nav id="nav-2">
+            <div class="social">
+                <a href="https://www.facebook.com/profile.php?id=61586610396658" target="_blank" class="social fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/usellbuy/" target="_blank" class="social ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/Abva494179" target="_blank" class="social x"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+        <!-- Hero Section -->
+        <div class="fp-container">
+            <div class="label"><i class="fa-solid fa-gamepad"></i> Fun &amp; Games</div>
+            <h1><span style ="color:var(--yellow)">Fun</span> Page <i class="fa-solid fa-face-smile-wink" style ="color:var(--yellow)"></i></h1>
+            <p class="sub">Play and experience DOM events in action!</p>
+        </div>
+
+        <div class="fp-layout">
+            <!-- Memory Game -->
+            <div class="game-card">
+                <h3>
+                    <i class="fa-solid fa-puzzle-piece"></i> 
+                    Memory Marketplace
+                </h3>
+                <p class="sub-label">
+                    <i class="fa-solid fa-arrows-spin"></i> 
+                    Turn over the cards to find the pairs
+                </p>
+                <div class="game-score">
+                    <div>
+                        <i class="fa-solid fa-chart-simple"></i> 
+                        Attempts : <span id="mem-tries">0</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-chart-line"></i> 
+                        Pairs : <span id="mem-pairs">0</span> / 8
+                    </div>
+                    <button class="btn-game" id="btn-mem-reset">
+                        <i class="fa-solid fa-rotate-right"></i> Replay
+                    </button>
+                </div>
+                <div class="memory-grid" id="memory-grid"></div>
+                <div id="mem-msg" class="text-center mt-2" style="font-size:13px;color:var(--gray);min-height:20px;"></div>
+            </div>
+
+            <!-- Event Propagation Section -->
+            <div class="propagation-container">
+                <h3>
+                    <i class="fa-solid fa-diagram-project"></i> 
+                    DOM Event Propagation
+                </h3>
+                <p>
+                    <i class="fa-solid fa-info-circle"></i> 
+                    Click on the nested areas to see the <strong>bubbling</strong>.
+                    The red button uses <code>stopPropagation()</code> to block the flow.
+                </p>
+
+                <!-- Niveau 1: DIV parent -->
+                <div class="ev-outer" id="ev-outer">
+                    <div class="ev-outer-label">
+                        <i class="fa-solid fa-layer-group"></i> 
+                        Parent DIV (level 1)
+                    </div>
+                    
+                    <!-- Niveau 2: Zone de jeu -->
+                    <div class="ev-zone" id="ev-zone">
+                        <div class="ev-zone-label">
+                            <i class="fa-solid fa-gamepad"></i> 
+                            Play area (level 2)
+
+                        </div>
+                        
+                        <!-- Niveau 3: Boutons -->
+                        <div class="ev-btn-wrap">
+                            <button class="ev-btn" id="ev-btn-normal">
+                                <i class="fa-solid fa-up-long"></i> Normal click (goes up)
+                            </button>
+                            <button class="ev-btn-stop" id="ev-btn-stop">
+                                <i class="fa-solid fa-ban"></i> stopPropagation()
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journal des événements -->
+                <div class="ev-log" id="ev-log">
+                    <span class="ev-log-clear" id="clear-log">
+                        <i class="fa-solid fa-trash-can"></i> Erase
+                    </span>
+                    <div style="color:var(--gray);font-style:italic;">
+                        <i class="fa-solid fa-hourglass-half"></i> Awaiting an event…
+                    </div>
+                </div>
+
+                <!-- Mouse Position Tracker -->
+                <div class="mouse-tracker" id="mouse-tracker">
+                    <i class="fa-solid fa-computer-mouse"></i> 
+                    Mouse Position : X = <span id="mouse-x">0</span> | Y = <span id="mouse-y">0</span>
+                </div>
+
+                <!-- Keyboard Shortcuts -->
+                <div class="text-center mt-2" style="font-size: 12px; color: var(--gray);">
+                    <i class="fa-solid fa-keyboard"></i> Shortcuts : 
+                    <span class="key-hint"><i class="fa-solid fa-space"></i> ESPACE</span> Reset game · 
+                    <span class="key-hint">K</span> Clear Log
+                </div>
+
+                <!-- Legend -->
+                <div class="legend">
+                    <span style="color:#7ab2f7;"><i class="fa-solid fa-square"></i> DIV parent</span>
+                    <span style="color:#ffd60a;"><i class="fa-solid fa-square"></i> Game zone</span>
+                    <span style="color:#7affa0;"><i class="fa-solid fa-arrow-up"></i> Normal button</span>
+                    <span style="color:#ff7070;"><i class="fa-solid fa-ban"></i> stopPropagation()</span>
+                    <span style="color:#c07aff;"><i class="fa-solid fa-mouse-pointer"></i> Mouse mouvement</span>
+                    <span style="color:#ff9f7a;"><i class="fa-solid fa-keyboard"></i> Keyboard touch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <p>UsellBuy is a global multi-vendor marketplace that connects buyers and sellers from around the world. Simple, secure, and accessible, it allows anyone to create their own online store and sell products across various categories including electronics, fashion, food, handicrafts, automotive and more.</p>
+                <div class="social" id="footer__social">
+                    <a href="https://facebook.com" target="_blank" class="social fb"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com" target="_blank" class="social x"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Tunis, Campus Manouba</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+216 29 255 110</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>UsellBuy@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Fri: 9am - 6pm</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="funpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="u__3_-removebg-preview.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UsellBuy — FAQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #faq {
+      padding: 80px 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .faq-container {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 56px;
+    }
+
+
+    .faq-container h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    .faq-container h1 span { color: var(--yellow); }
+
+    .faq-container p {
+      margin-top: 14px;
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .faq-card {
+      background: #1a1a1a;
+      border: 1.5px solid #ffd60a40;
+      border-radius: 20px;
+      padding: 38px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+      cursor: default;
+    }
+
+    .faq-card:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      transform: translateY(-4px);
+    }
+    .faq-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #2a2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .faq-card-q {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      transition: color 0.25s;
+    }
+
+    .faq-card:hover .faq-card-q { color: var(--black); }
+
+    .faq-card-a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.75;
+      transition: color 0.25s;
+    }
+
+    .faq-card:hover .faq-card-a { color: #333; }
+
+    .faq-cta {
+      max-width: 1100px;
+      margin: 60px auto 0;
+      border: 1.5px solid #ffd60a40;
+      border-radius: 20px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: var(--border);
+    }
+
+    .faq-cta > i {
+      font-size: 1.8rem;
+      color: var(--yellow);
+    }
+
+    .faq-cta-text { flex: 1; }
+    .faq-cta-text h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); }
+    .faq-cta-text p { font-size: 0.875rem; color: var(--gray); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="u__3_-removebg-preview.png"></a>
+  </div>
+  <nav id="nav_1">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQ</a>
+    <a href="about.html"> About us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <nav id="nav-2">
+    <div class="social">
+      <a href="https://facebook.com" target="_blank" class="social fb"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank" class="social ig"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com" target="_blank" class="social x"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </nav>
+</header>
+
+  <div id="faq">
+    <div class="faq-container">
+      <div class="label">Help Center</div>
+      <h1>How can we <span>help you?</span></h1>
+      <p>Find answers to the most common questions about UsellBuy.</p>
+    </div>
+
+    <div class="faq-grid">
+      <!-- Row 1 -->
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="faq-card-q">What is UsellBuy?</div>
+        <div class="faq-card-a">A streamlined marketplace where individuals and businesses can list, buy, and sell products with zero friction.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-user"></i></div>
+        <div class="faq-card-q">Who can use UsellBuy?</div>
+        <div class="faq-card-a">Anyone — individual sellers, small businesses, or large enterprises. We have plans tailored to every scale.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-lock"></i></div>
+        <div class="faq-card-q">Is my payment information secure?</div>
+        <div class="faq-card-a">Yes. All transactions are encrypted end-to-end. We never store raw card data — payments go through PCI-DSS compliant providers.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <div class="faq-card-q">What payment methods are accepted?</div>
+        <div class="faq-card-a">We accept all major cards, PayPal, Apple Pay, Google Pay, and bank transfers for Enterprise accounts.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-tag"></i></div>
+        <div class="faq-card-q">Is there a fee to sell?</div>
+        <div class="faq-card-a">The Starter plan is free with a small transaction fee. Pro and Enterprise plans have lower fees and more features.</div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <div class="faq-card-q">What is the buyer protection policy?</div>
+        <div class="faq-card-a">Every purchase is covered. If an item doesn't arrive or match its description, we'll refund you within 24–48 hours.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-rotate-left"></i></div>
+        <div class="faq-card-q">Can I return a product?</div>
+        <div class="faq-card-a">Yes, returns are accepted within 14 days of delivery if the item is not as described. Contact support to open a request.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-truck"></i></div>
+        <div class="faq-card-q">How do I track my order?</div>
+        <div class="faq-card-a">Once your order ships, you'll receive a tracking number by email. You can also check "My Orders" in your account.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="faq-card-q">What are your support hours?</div>
+        <div class="faq-card-a">Email support is available 24/7. Live chat runs Monday–Friday, 9am–6pm GMT. Enterprise clients get dedicated 24/7 support.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-store"></i></div>
+        <div class="faq-card-q">How do I create a seller account?</div>
+        <div class="faq-card-a">Sign up with your email, choose a seller plan, complete identity verification, and your store is live within minutes.</div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="faq-card-q">Can I see my sales analytics?</div>
+        <div class="faq-card-a">Yes. Pro and Enterprise sellers get a full dashboard with real-time revenue, conversion, and traffic insights.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="faq-card-q">Do you support international shipping?</div>
+        <div class="faq-card-a">Absolutely. UsellBuy supports cross-border shipping to over 80 countries with integrated carrier partnerships and customs support.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="faq-card-q">How does the review system work?</div>
+        <div class="faq-card-a">Buyers can leave ratings and written reviews after a confirmed purchase. Sellers can respond publicly to any review.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="faq-card-q">How are disputes resolved?</div>
+        <div class="faq-card-a">Our mediation team reviews disputes within 48 hours. Funds are held in escrow until both parties reach a resolution.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-card-icon"><i class="fa-solid fa-bell"></i></div>
+        <div class="faq-card-q">Can I get notified about price drops?</div>
+        <div class="faq-card-a">Yes. Wishlist any item and toggle "Price Alerts" — we'll notify you instantly via email or push when the price falls.</div>
+      </div>
+  </div>
+
+  <div class="faq-cta">
+    <i class="fa-solid fa-headset"></i>
+    <div class="faq-cta-text">
+      <h3>Still have questions?</h3>
+      <p>Our support team is ready to help you out.</p>
+    </div>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <p>UsellBuy is a global multi-vendor marketplace that connects buyers and sellers from around the world. Simple, secure, and accessible, it allows anyone to create their own online store and sell products across various categories including electronics, fashion, food, handicrafts, automotive and more.</p>
+        <div class="social" id="footer__social">
+          <a href="https://facebook.com" target="_blank" class="social fb">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              
+              <a href="https://instagram.com" target="_blank" class="social ig">
+                  <i class="fa-brands fa-instagram"></i>
+              </a>
+              
+              <a href="https://x.com" target="_blank" class="social x">
+                  <i class="fa-brands fa-x-twitter"></i>
+              </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+      </div>
+    
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Tunis,Compus manouba</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <p>+216 29 255 110</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>UsellBuy@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <p>Mon-Fri: 9am - 6pm</p>
+        </div>
+      </div>
+   </div>
+  </footer>
+ 
+</body>
+</html>
