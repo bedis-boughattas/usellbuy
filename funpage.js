@@ -178,6 +178,7 @@ function attachClearLog() {
         });
     }
 }
+
 attachClearLog();
 
 // Récupération des éléments DOM pour la propagation

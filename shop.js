@@ -21,7 +21,6 @@ function Product(id, name, description, price, country, category, image) {
 /*
   *1b. COLLECTIONS — Tableau d'objets initialisé
 */
- 
 /** Tableau principal contenant des instances de Product */
 var products = [
   new Product(1,  "Polaroid Camera",      "Instant film camera — fun and retro.",         89.99,   "Italy",   "Electronics", "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80"),
