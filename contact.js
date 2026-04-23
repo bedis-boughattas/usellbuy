@@ -148,3 +148,112 @@ function demarrerAuto() {
 /* Démarrer la rotation automatique et le compteur */
 resetTimer();
 demarrerAuto();
+
+/* ============================================================
+   PARTIE IV — Validation du formulaire Contact (JavaScript)
+   ============================================================ */
+
+/**
+ * Affiche un message d'erreur sous un champ
+ * @param {string} fieldId  — id du champ input
+ * @param {string} errId    — id du span d'erreur
+ * @param {string} message  — texte à afficher
+ */
+function ctSetError(fieldId, errId, message) {
+  var field = document.getElementById(fieldId);
+  var err   = document.getElementById(errId);
+  if (field) { field.style.borderColor = 'var(--error)'; }
+  if (err)   { err.textContent = message; err.style.display = 'block'; err.style.color = 'var(--error)'; }
+}
+
+/**
+ * Efface le message d'erreur d'un champ
+ * @param {string} fieldId
+ * @param {string} errId
+ */
+function ctClearError(fieldId, errId) {
+  var field = document.getElementById(fieldId);
+  var err   = document.getElementById(errId);
+  if (field) { field.style.borderColor = 'var(--valide)'; }
+  if (err)   { err.textContent = ''; err.style.display = 'none'; }
+}
+
+/**
+ * Valide le formulaire de contact avant envoi au serveur PHP.
+ * Vérifie : champs obligatoires, longueur, format email, format téléphone.
+ * @returns {boolean} false bloque l'envoi si une erreur est détectée
+ */
+function validateContactForm() {
+  var valid = true;
+
+  /* --- Prénom : obligatoire, min 2 lettres, lettres uniquement --- */
+  var firstName = document.getElementById('ct-firstname').value.trim();
+  var nameRegex = /^[a-zA-ZÀ-ÿ\s\-']{2,50}$/;
+  if (firstName === '') {
+    ctSetError('ct-firstname', 'err-firstname', 'First name is required.');
+    valid = false;
+  } else if (!nameRegex.test(firstName)) {
+    ctSetError('ct-firstname', 'err-firstname', 'First name must contain only letters (min 2 characters).');
+    valid = false;
+  } else {
+    ctClearError('ct-firstname', 'err-firstname');
+  }
+
+  /* --- Nom : obligatoire, min 2 lettres --- */
+  var lastName = document.getElementById('ct-lastname').value.trim();
+  if (lastName === '') {
+    ctSetError('ct-lastname', 'err-lastname', 'Last name is required.');
+    valid = false;
+  } else if (!nameRegex.test(lastName)) {
+    ctSetError('ct-lastname', 'err-lastname', 'Last name must contain only letters (min 2 characters).');
+    valid = false;
+  } else {
+    ctClearError('ct-lastname', 'err-lastname');
+  }
+
+  /* --- Email : obligatoire, format valide --- */
+  var email = document.getElementById('ct-email').value.trim();
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === '') {
+    ctSetError('ct-email', 'err-email', 'Email address is required.');
+    valid = false;
+  } else if (!emailRegex.test(email)) {
+    ctSetError('ct-email', 'err-email', 'Please enter a valid email address (e.g. user@example.com).');
+    valid = false;
+  } else {
+    ctClearError('ct-email', 'err-email');
+  }
+
+  /* --- Téléphone : optionnel, mais si renseigné doit être valide --- */
+  var phone = document.getElementById('ct-phone').value.trim();
+  var phoneRegex = /^(\+?[0-9\s\-\(\)]{7,20})$/;
+  if (phone !== '' && !phoneRegex.test(phone)) {
+    ctSetError('ct-phone', 'err-phone', 'Invalid phone number format (e.g. +216 29 255 110).');
+    valid = false;
+  } else {
+    ctClearError('ct-phone', 'err-phone');
+  }
+
+  /* --- Message : obligatoire, min 10 caractères --- */
+  var message = document.getElementById('ct-message').value.trim();
+  if (message === '') {
+    ctSetError('ct-message', 'err-message', 'Message is required.');
+    valid = false;
+  } else if (message.length < 10) {
+    ctSetError('ct-message', 'err-message', 'Message must be at least 10 characters long.');
+    valid = false;
+  } else if (message.length > 1000) {
+    ctSetError('ct-message', 'err-message', 'Message must not exceed 1000 characters.');
+    valid = false;
+  } else {
+    ctClearError('ct-message', 'err-message');
+  }
+
+  /* Faire défiler jusqu'au premier champ en erreur */
+  if (!valid) {
+    var firstError = document.querySelector('.error-msg[style*="block"]');
+    if (firstError) { firstError.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+
+  return valid; /* false = bloque l'envoi */
+}

@@ -86,8 +86,6 @@ document.getElementById("q-commentaire").addEventListener("blur", validerComment
 
 // écoute la soumission du formulaire
 document.getElementById("quiz-form").addEventListener("submit", function(e) {
-  e.preventDefault(); // bloque le rechargement de la page
-
   // lance la validation de chaque champ
   var v1 = validerNom(); // valide le nom
   var v2 = validerEmail(); // valide l'email
@@ -95,11 +93,11 @@ document.getElementById("quiz-form").addEventListener("submit", function(e) {
   var v4 = validerNote(); // valide la note
   var v5 = validerCommentaire(); // valide le commentaire
 
-  if (v1 && v2 && v3 && v4 && v5) { // si tout est valide
-    document.getElementById("quiz-form").style.display = "none"; // cache le formulaire
-    document.getElementById("success-panel").classList.add("visible"); // affiche le message de succès
-    document.getElementById("q-card").scrollIntoView({ behavior: "smooth" }); // remonte en douceur vers le haut
-  } else { // si au moins un champ est invalide
+  if (v1 && v2 && v3 && v4 && v5) {
+    // Tout est valide : laisser le formulaire s'envoyer vers PHP (ne pas appeler preventDefault)
+    return true;
+  } else {
+    e.preventDefault(); // bloque l'envoi si une erreur est détectée
     var firstError = document.querySelector(".field-error"); // cherche le premier champ en erreur
     if (firstError) { firstError.scrollIntoView({ behavior: "smooth", block: "center" }); } // scrolle vers ce champ
   }

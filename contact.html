@@ -125,15 +125,38 @@
           </div>
         </div>
 
-        <form class="ct-form" action="https://httpbin" method="POST" target="_blank">
+        <form class="ct-form" id="contact-form" action="contact_process.php" method="POST" onsubmit="return validateContactForm()">
           <h3>Send a Message</h3>
           <div class="row2">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="Ahmed"></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Mohsen"></div>
+            <div class="fg">
+              <label for="ct-firstname">First Name *</label>
+              <input type="text" id="ct-firstname" name="first_name" placeholder="Ahmed" minlength="2" maxlength="50">
+              <span class="error-msg" id="err-firstname"></span>
+            </div>
+            <div class="fg">
+              <label for="ct-lastname">Last Name *</label>
+              <input type="text" id="ct-lastname" name="last_name" placeholder="Mohsen" minlength="2" maxlength="50">
+              <span class="error-msg" id="err-lastname"></span>
+            </div>
           </div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="AhmedMohsen@gmail.com"></div>
-          <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell us about your project..."></textarea></div>
-          <button class="btn" style="width:100%;text-align:center;">Send Message</button>
+          <div class="fg">
+            <label for="ct-email">Email *</label>
+            <input type="email" id="ct-email" name="email" placeholder="AhmedMohsen@gmail.com">
+            <span class="error-msg" id="err-email"></span>
+          </div>
+          <div class="fg">
+            <label for="ct-phone">Phone (optional)</label>
+            <input type="text" id="ct-phone" name="phone" placeholder="+216 XX XXX XXX" maxlength="20">
+            <span class="error-msg" id="err-phone"></span>
+          </div>
+          <div class="fg">
+            <label for="ct-message">Message * (min 10 characters)</label>
+            <textarea id="ct-message" name="message" rows="5" placeholder="Tell us about your project..." minlength="10" maxlength="1000"></textarea>
+            <span class="error-msg" id="err-message"></span>
+          </div>
+          <button class="btn" type="submit" style="width:100%;text-align:center;">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
         </form>
       </div>
     </div>

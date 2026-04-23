@@ -1772,3 +1772,14 @@ h2{
         grid-template-columns: 1fr; 
     } 
 }
+
+/* ── PARTIE IV — PHP Form error spans ── */
+.ct-form .error-msg {
+  display: none;
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 4px;
+}
+.ct-form input, .ct-form textarea {
+  transition: border-color .2s;
+}

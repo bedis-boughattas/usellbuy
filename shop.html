@@ -41,33 +41,41 @@
         <p class="sub">Browse our featured products and digital tools.</p>
       </div>
     <div class="forms">
-      <h2 class="forms-title"><i class="fas fa-search"></i> Find Your Product</h>
+      <h2 class="forms-title"><i class="fas fa-search"></i> Find Your Product</h2>
     <div class="forms-grid">
-      <form class="form" action="https://httpbin.org/get" method="GET" target="_blank">
+      <form class="form" action="products_search.php" method="GET">
         <h3>Quick Search</h3>
-        <input type="text" name="search" placeholder="Product name..." required>
+        <input type="text" name="keyword" placeholder="Product name..." required>
         <select name="category" class="simple-select">
           <option value="">All Categories</option>
-          <option value="electronics">Electronics</option>
-          <option value="cameras">Clothes</option>
-          <option value="audio">Food</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Food">Food</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Music">Music</option>
+          <option value="Sport">Sport</option>
         </select>
-        <button type="submit" class="btn" id ="btn__form"><i class="fas fa-search"></i> Search </button>
+        <input type="hidden" name="search" value="1">
+        <button type="submit" class="btn" id="btn__form"><i class="fas fa-search"></i> Search</button>
       </form>
-      <form class="form" action="https://httpbin.org/post" method="POST" target="_blank">
+      <form class="form" action="products_search.php" method="GET">
         <h3>Advanced Search</h3>
-        <input type="text" name="product" placeholder="Product name..." required>
+        <input type="text" name="keyword" placeholder="Product name...">
         <select name="category" class="simple-select">
           <option value="">All Categories</option>
-          <option value="electronics">Electronics</option>
-          <option value="cameras">Clothes</option>
-          <option value="audio">Food</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Food">Food</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Music">Music</option>
+          <option value="Sport">Sport</option>
         </select>
         <div class="price-row">
-          <input type="number" name="min" placeholder="Min $">
-          <input type="number" name="max" placeholder="Max $">
+          <input type="number" name="min_price" placeholder="Min $" min="0" step="0.01">
+          <input type="number" name="max_price" placeholder="Max $" min="0" step="0.01">
         </div>
-        <button type="submit" class="btn" id="btn__form"><i class="fas fa-filter"></i> Search </button>
+        <input type="hidden" name="search" value="1">
+        <button type="submit" class="btn" id="btn__form"><i class="fas fa-filter"></i> Search</button>
       </form>
     </div>
   </div>
@@ -79,7 +87,7 @@
       <!-- Formulaire Ajout -->
     <div class="form-grid">
       <form class="form" id="form-add" novalidate>
-          <h3><i class="fa-solid fa-circle-plus"></i> Add Product</h3>
+          <h3><i class="fa-solid fa-circle-plus"></i> Add Product (JS Preview)</h3>
           <div>
             <div>
               <label>Name</label><br><br>
@@ -115,6 +123,9 @@
           <button type="submit" class="btn">
             <i class="fa-solid fa-plus"></i> Add to Catalogue
           </button>
+          <a href="products_insert.php" class="btn" style="display:block;text-align:center;margin-top:10px;background:transparent;border:1px solid var(--yellow);color:var(--yellow);">
+            <i class="fa-solid fa-database"></i> Save to Database
+          </a>
         </form>
         <br>
         
