@@ -41,44 +41,22 @@
         <p class="sub">Browse our featured products and digital tools.</p>
       </div>
     <div class="forms">
-      <h2 class="forms-title"><i class="fas fa-search"></i> Find Your Product</h2>
-    <div class="forms-grid">
-      <form class="form" action="products_search.php" method="GET">
-        <h3>Quick Search</h3>
-        <input type="text" name="keyword" placeholder="Product name..." required>
-        <select name="category" class="simple-select">
-          <option value="">All Categories</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Food">Food</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Music">Music</option>
-          <option value="Sport">Sport</option>
-        </select>
-        <input type="hidden" name="search" value="1">
-        <button type="submit" class="btn" id="btn__form"><i class="fas fa-search"></i> Search</button>
-      </form>
-      <form class="form" action="products_search.php" method="GET">
-        <h3>Advanced Search</h3>
-        <input type="text" name="keyword" placeholder="Product name...">
-        <select name="category" class="simple-select">
-          <option value="">All Categories</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Food">Food</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Music">Music</option>
-          <option value="Sport">Sport</option>
-        </select>
-        <div class="price-row">
-          <input type="number" name="min_price" placeholder="Min $" min="0" step="0.01">
-          <input type="number" name="max_price" placeholder="Max $" min="0" step="0.01">
-        </div>
-        <input type="hidden" name="search" value="1">
-        <button type="submit" class="btn" id="btn__form"><i class="fas fa-filter"></i> Search</button>
-      </form>
+      <h2 class="forms-title"><i class="fas fa-database"></i> Product Catalogue</h2>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;padding:10px 0 20px;">
+        <a href="products_search.php" class="btn">
+          <i class="fas fa-search"></i> Search &amp; Browse Products
+        </a>
+        <a href="products_insert.php" class="btn" style="background:transparent;border:1px solid var(--yellow);color:var(--yellow);">
+          <i class="fas fa-plus"></i> Add New Product
+        </a>
+        <a href="products_update.php" class="btn" style="background:transparent;border:1px solid var(--yellow);color:var(--yellow);">
+          <i class="fas fa-pen"></i> Update Product
+        </a>
+        <a href="products_delete.php" class="btn" style="background:transparent;border:1px solid #ff7070;color:#ff7070;">
+          <i class="fas fa-trash"></i> Delete Product
+        </a>
+      </div>
     </div>
-  </div>
 
   <div class="prod-grid" id="prod-grid-dynamic"></div>
   <hr>
