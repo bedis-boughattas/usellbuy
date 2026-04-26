@@ -222,6 +222,9 @@ if ($updSuccess && isset($uId)) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
+    .crud-links { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
+    .crud-links a { padding:8px 18px; border-radius:8px; font-size:13px; text-decoration:none; border:1px solid var(--yellow); color:var(--yellow); transition:.2s; }
+    .crud-links a:hover, .crud-links a.active { background:var(--yellow); color:#000; }
     :root {
       --yellow:  #ffd60a;
       --error:   #ff7070;
@@ -345,36 +348,47 @@ if ($updSuccess && isset($uId)) {
 <body>
 
 <header>
-  <div class="logo"><a href="index.html"><img src="u__3_-removebg-preview.png" alt="UsellBuy"></a></div>
-  <nav id="nav_1">
+    <div class = "logo">
+        <a href="index.html"><img src = "u__3_-removebg-preview.png"></a>
+    </div>
+    
+  <nav id ="nav_1">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="shop.html">Shop</a>
     <a href="faq.html">FAQ</a>
-    <a href="about.html">About us</a>
+    <a href="about.html"> About us</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <nav id = "nav-2">
+      <div class = "social">
+
+          <a href="https://facebook.com" target="_blank" class="social fb">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://instagram.com" target="_blank" class="social ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <a href="https://x.com" target="_blank" class="social x">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
+    </nav>
 </header>
 
 <div class="pm-wrap">
   <div class="label">Database</div>
   <h1 style="margin-bottom:6px;">Products <span class="yellow">Manager</span></h1>
   <p class="sub" style="margin-bottom:28px;">Search, add, update and delete products — all in one place.</p>
-
-  <div class="tab-bar">
-    <button class="tab-btn <?= $activeTab==='search' ?'active':'' ?>" onclick="switchTab('search')">
-      <i class="fa-solid fa-magnifying-glass"></i>Search
-    </button>
-    <button class="tab-btn <?= $activeTab==='add' ?'active':'' ?>" onclick="switchTab('add')">
-      <i class="fa-solid fa-plus"></i>Add
-    </button>
-    <button class="tab-btn <?= $activeTab==='update' ?'active':'' ?>" onclick="switchTab('update')">
-      <i class="fa-solid fa-pen"></i>Update
-    </button>
-    <button class="tab-btn <?= $activeTab==='delete' ?'active':'' ?>" onclick="switchTab('delete')">
-      <i class="fa-solid fa-trash"></i>Delete
-    </button>
-  </div>
+  <div class="crud-links">
+      <a href="products_search.php" class="active"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+      <a href="products_insert.php"><i class="fa-solid fa-plus"></i> Add Product</a>
+      <a href="products_update.php" ><i class="fa-solid fa-pen"></i> Update Product</a>
+      <a href="products_delete.php"><i class="fa-solid fa-trash"></i> Delete Product</a>
+    </div>
+  
 
   <!-- ══════════════════════════════════════════
        TAB: SEARCH

@@ -117,16 +117,35 @@ $allProducts = $pdo->query('SELECT id, name, price, category FROM products ORDER
 </head>
 <body>
   <header>
-    <div class="logo"><a href="index.html"><img src="u__3_-removebg-preview.png" alt="logo"></a></div>
-    <nav id="nav_1">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="shop.html">Shop</a>
-      <a href="faq.html">FAQ</a>
-      <a href="about.html">About us</a>
-      <a href="contact.html">Contact</a>
+    <div class = "logo">
+        <a href="index.html"><img src = "u__3_-removebg-preview.png"></a>
+    </div>
+    
+  <nav id ="nav_1">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="shop.html">Shop</a>
+    <a href="faq.html">FAQ</a>
+    <a href="about.html"> About us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <nav id = "nav-2">
+      <div class = "social">
+
+          <a href="https://facebook.com" target="_blank" class="social fb">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://instagram.com" target="_blank" class="social ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <a href="https://x.com" target="_blank" class="social x">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
     </nav>
-  </header>
+</header>
 
   <div class="page-wrap">
     <div class="label">Database</div>
